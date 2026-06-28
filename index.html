@@ -23,50 +23,26 @@
   *{box-sizing:border-box;margin:0;padding:0;}
   html{scroll-behavior:smooth;}
   body{
-    background:var(--paper);
-    color:var(--ink);
-    font-family:var(--sans);
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
+    background:var(--paper);color:var(--ink);font-family:var(--sans);
+    line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;
   }
   .wrap{max-width:760px;margin:0 auto;padding:0 28px;}
 
-  .label{
-    font-size:11.5px;letter-spacing:0.22em;text-transform:uppercase;
-    color:var(--gray);font-weight:600;
-  }
+  .label{font-size:11.5px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gray);font-weight:600;}
 
   header{padding:30px 0 0;}
   .topbar{display:flex;align-items:center;justify-content:space-between;}
-  .mark{
-    font-family:var(--sans);font-weight:700;font-size:18px;letter-spacing:-0.01em;
-    display:inline-flex;align-items:center;gap:7px;text-decoration:none;color:var(--ink);
-  }
+  .mark{font-family:var(--sans);font-weight:700;font-size:18px;letter-spacing:-0.01em;display:inline-flex;align-items:center;gap:7px;text-decoration:none;color:var(--ink);}
   .mark .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);display:inline-block;margin-bottom:-1px;}
   .tap-hint{font-size:12px;color:var(--gray);letter-spacing:0.04em;}
 
   .hero{padding:clamp(70px,14vw,130px) 0 clamp(40px,8vw,70px);}
   .hero .label{opacity:0;animation:rise .9s .1s cubic-bezier(.2,.7,.2,1) forwards;}
-  .hero h1{
-    font-family:var(--serif);font-weight:400;font-size:clamp(38px,8vw,68px);
-    line-height:1.18;letter-spacing:-0.01em;margin:22px 0 0;
-    opacity:0;animation:rise 1s .22s cubic-bezier(.2,.7,.2,1) forwards;
-  }
+  .hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(38px,8vw,68px);line-height:1.18;letter-spacing:-0.01em;margin:22px 0 0;opacity:0;animation:rise 1s .22s cubic-bezier(.2,.7,.2,1) forwards;}
   .hero h1 em{font-style:normal;color:var(--accent);}
-  .hero .sub{
-    max-width:430px;margin:26px 0 0;color:#3c3a3f;font-size:clamp(15px,2.4vw,17px);
-    opacity:0;animation:rise 1s .34s cubic-bezier(.2,.7,.2,1) forwards;
-  }
-  .hero .cta-row{
-    margin:38px 0 0;display:flex;align-items:center;gap:20px;flex-wrap:wrap;
-    opacity:0;animation:rise 1s .46s cubic-bezier(.2,.7,.2,1) forwards;
-  }
-  .btn{
-    display:inline-flex;align-items:center;gap:9px;background:var(--ink);color:var(--paper);
-    text-decoration:none;font-size:14.5px;font-weight:500;padding:13px 22px;border-radius:100px;
-    transition:transform .25s ease, opacity .25s ease;
-  }
+  .hero .sub{max-width:430px;margin:26px 0 0;color:#3c3a3f;font-size:clamp(15px,2.4vw,17px);opacity:0;animation:rise 1s .34s cubic-bezier(.2,.7,.2,1) forwards;}
+  .hero .cta-row{margin:38px 0 0;display:flex;align-items:center;gap:20px;flex-wrap:wrap;opacity:0;animation:rise 1s .46s cubic-bezier(.2,.7,.2,1) forwards;}
+  .btn{display:inline-flex;align-items:center;gap:9px;background:var(--ink);color:var(--paper);text-decoration:none;font-size:14.5px;font-weight:500;padding:13px 22px;border-radius:100px;transition:transform .25s ease, opacity .25s ease;}
   .btn:hover{transform:translateY(-2px);opacity:.9;}
   .btn .arr{transition:transform .25s ease;}
   .btn:hover .arr{transform:translateX(3px);}
@@ -83,18 +59,11 @@
   .about p{font-family:var(--serif);font-size:clamp(19px,3.4vw,25px);line-height:1.6;color:var(--ink);}
   .about .meta{margin-top:26px;font-family:var(--sans);font-size:14.5px;line-height:1.8;color:#4a4842;}
 
-  /* ---------- listen / song switcher ---------- */
+  /* listen */
   .listen{padding:clamp(50px,9vw,84px) 0;border-top:1px solid var(--line);}
   .listen .label{margin-bottom:30px;}
-  .player{
-    display:flex;align-items:center;gap:20px;
-    padding-bottom:24px;border-bottom:1px solid var(--line);margin-bottom:8px;
-  }
-  .play-btn{
-    flex:none;width:54px;height:54px;border-radius:50%;border:0;cursor:pointer;
-    background:var(--ink);color:var(--paper);display:flex;align-items:center;justify-content:center;
-    transition:transform .2s ease,opacity .2s ease;
-  }
+  .player{display:flex;align-items:center;gap:20px;padding-bottom:24px;border-bottom:1px solid var(--line);margin-bottom:8px;}
+  .play-btn{flex:none;width:54px;height:54px;border-radius:50%;border:0;cursor:pointer;background:var(--ink);color:var(--paper);display:flex;align-items:center;justify-content:center;transition:transform .2s ease,opacity .2s ease;}
   .play-btn:hover{transform:scale(1.05);}
   .play-btn svg{width:18px;height:18px;}
   .play-btn .ico-pause{display:none;}
@@ -105,14 +74,8 @@
   .now-by{font-size:13px;color:var(--gray);margin-top:2px;}
   .progress{margin-top:12px;height:2px;background:var(--line);border-radius:2px;overflow:hidden;}
   .progress span{display:block;height:100%;width:0;background:var(--accent);transition:width .15s linear;}
-
   .tracklist{list-style:none;margin:14px 0 0;}
-  .track{
-    width:100%;display:flex;align-items:center;gap:16px;
-    background:none;border:0;cursor:pointer;text-align:left;
-    padding:14px 4px;border-bottom:1px solid var(--line);
-    font-family:var(--sans);color:var(--ink);transition:padding-left .2s ease;
-  }
+  .track{width:100%;display:flex;align-items:center;gap:16px;background:none;border:0;cursor:pointer;text-align:left;padding:14px 4px;border-bottom:1px solid var(--line);font-family:var(--sans);color:var(--ink);transition:padding-left .2s ease;}
   .track:last-child{border-bottom:0;}
   .track:hover{padding-left:10px;}
   .track .num{font-size:12px;color:var(--gray);width:22px;letter-spacing:0.05em;}
@@ -122,35 +85,36 @@
   .track.active .num{color:var(--accent);}
   .listen .hint{margin-top:18px;font-size:12.5px;color:var(--gray);}
 
-  /* ---------- event banner ---------- */
-  .event{
-    background:var(--accent);color:var(--paper-on-accent);border-radius:18px;
-    padding:clamp(34px,6vw,52px);margin:0 0 clamp(56px,10vw,90px);
-  }
+  /* nfc writer */
+  .nfc{padding:clamp(50px,9vw,84px) 0;border-top:1px solid var(--line);}
+  .nfc .label{margin-bottom:18px;}
+  .nfc-desc{max-width:480px;color:#4a4842;font-size:15px;margin-bottom:26px;}
+  .nfc-form{display:flex;flex-direction:column;gap:12px;max-width:480px;}
+  .nfc-form label{font-size:12.5px;color:var(--gray);margin-bottom:-4px;letter-spacing:0.02em;}
+  .nfc-form select,.nfc-form input{font-family:var(--sans);font-size:15px;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:13px 14px;width:100%;}
+  .nfc-form select:focus,.nfc-form input:focus{outline:none;border-color:var(--accent);}
+  .nfc-form .btn{border:0;cursor:pointer;justify-content:center;margin-top:6px;font-size:15px;padding:15px 22px;}
+  .nfc-status{margin-top:18px;font-size:14px;color:var(--gray);min-height:21px;line-height:1.5;}
+  .nfc-status.ok{color:var(--accent);font-weight:600;}
+  .nfc-status.err{color:#a23b3b;}
+  .nfc .hint{margin-top:10px;font-size:12.5px;color:var(--gray);}
+
+  /* event */
+  .event{background:var(--accent);color:var(--paper-on-accent);border-radius:18px;padding:clamp(34px,6vw,52px);margin:0 0 clamp(56px,10vw,90px);}
   .event .label{color:rgba(240,238,231,.6);}
-  .event .dates{
-    font-family:var(--serif);font-size:clamp(40px,9vw,72px);line-height:1;
-    letter-spacing:0.01em;margin:18px 0 0;font-weight:400;
-  }
+  .event .dates{font-family:var(--serif);font-size:clamp(40px,9vw,72px);line-height:1;letter-spacing:0.01em;margin:18px 0 0;font-weight:400;}
   .event h2{font-family:var(--sans);font-weight:600;font-size:clamp(17px,3vw,21px);margin:24px 0 0;letter-spacing:-0.01em;}
   .event .edesc{margin:12px 0 0;max-width:420px;color:rgba(240,238,231,.78);font-size:15px;}
-  .event .where{
-    margin:26px 0 0;padding-top:22px;border-top:1px solid rgba(240,238,231,.18);
-    display:flex;gap:34px;flex-wrap:wrap;font-size:13.5px;
-  }
+  .event .where{margin:26px 0 0;padding-top:22px;border-top:1px solid rgba(240,238,231,.18);display:flex;gap:34px;flex-wrap:wrap;font-size:13.5px;}
   .event .where span{display:block;color:rgba(240,238,231,.55);margin-bottom:3px;letter-spacing:0.04em;}
   .event .where strong{font-weight:500;font-size:15px;}
 
-  /* ---------- follow ---------- */
+  /* follow */
   .follow{padding:0 0 clamp(70px,11vw,100px);text-align:center;}
   .follow h3{font-family:var(--serif);font-weight:400;font-size:clamp(24px,5vw,34px);line-height:1.4;margin:0 auto;max-width:440px;}
   .follow p{margin:18px auto 0;color:var(--gray);font-size:15px;max-width:380px;}
   .follow .channels{margin:34px 0 0;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
-  .chan{
-    display:inline-flex;align-items:center;gap:9px;text-decoration:none;color:var(--ink);
-    border:1px solid var(--ink);border-radius:100px;padding:12px 22px;font-size:14.5px;font-weight:500;
-    background:transparent;transition:background .25s ease,color .25s ease;
-  }
+  .chan{display:inline-flex;align-items:center;gap:9px;text-decoration:none;color:var(--ink);border:1px solid var(--ink);border-radius:100px;padding:12px 22px;font-size:14.5px;font-weight:500;background:transparent;transition:background .25s ease,color .25s ease;}
   .chan:hover{background:var(--ink);color:var(--paper);}
 
   footer{border-top:1px solid var(--line);padding:30px 0 44px;}
@@ -159,20 +123,11 @@
   @keyframes rise{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
   @keyframes fade{to{opacity:1;}}
 
-  a:focus-visible,.btn:focus-visible,.chan:focus-visible,.play-btn:focus-visible,.track:focus-visible{
-    outline:2px solid var(--accent);outline-offset:3px;
-  }
+  a:focus-visible,.btn:focus-visible,.chan:focus-visible,.play-btn:focus-visible,.track:focus-visible,
+  .nfc-form select:focus-visible,.nfc-form input:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
 
-  @media (max-width:560px){
-    .about-grid{grid-template-columns:1fr;gap:14px;}
-    .event .where{gap:24px;}
-  }
-  @media (prefers-reduced-motion:reduce){
-    *{animation:none!important;}
-    html{scroll-behavior:auto;}
-    .hero .label,.hero h1,.hero .sub,.hero .cta-row,.soundline{opacity:1;}
-    .wave-anim{display:none;}
-  }
+  @media (max-width:560px){.about-grid{grid-template-columns:1fr;gap:14px;}.event .where{gap:24px;}}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;}html{scroll-behavior:auto;}.hero .label,.hero h1,.hero .sub,.hero .cta-row,.soundline{opacity:1;}.wave-anim{display:none;}}
 </style>
 </head>
 <body>
@@ -195,17 +150,12 @@
         <a class="btn" href="https://www.instagram.com/artcation042" target="_blank" rel="noopener">인스타그램 팔로우 <span class="arr">&rarr;</span></a>
         <span class="ghost-note">제작 문의 · 커스텀 곡 주문</span>
       </div>
-
       <div class="soundline" aria-hidden="true">
         <svg viewBox="0 0 760 54" preserveAspectRatio="none">
           <path class="wave-anim" d="M0,27 C95,27 95,27 190,27 S285,27 380,27 S475,27 570,27 S665,27 760,27">
             <animate attributeName="d" dur="9s" repeatCount="indefinite"
-              values="
-                M0,27 C95,27 95,27 190,27 S285,27 380,27 S475,27 570,27 S665,27 760,27;
-                M0,27 C95,9 95,45 190,27 S285,7 380,27 S475,47 570,27 S665,11 760,27;
-                M0,27 C95,27 95,27 190,27 S285,27 380,27 S475,27 570,27 S665,27 760,27"
-              keyTimes="0;0.5;1" calcMode="spline"
-              keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"/>
+              values="M0,27 C95,27 95,27 190,27 S285,27 380,27 S475,27 570,27 S665,27 760,27;M0,27 C95,9 95,45 190,27 S285,7 380,27 S475,47 570,27 S665,11 760,27;M0,27 C95,27 95,27 190,27 S285,27 380,27 S475,27 570,27 S665,27 760,27"
+              keyTimes="0;0.5;1" calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"/>
           </path>
         </svg>
       </div>
@@ -229,11 +179,10 @@
     </div>
   </section>
 
-  <!-- LISTEN / SONG SWITCHER -->
+  <!-- LISTEN -->
   <section class="listen">
     <div class="wrap">
       <p class="label">Listen · 들어보기</p>
-
       <div class="player">
         <button class="play-btn" id="playBtn" aria-label="재생 / 일시정지">
           <svg class="ico-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
@@ -245,16 +194,30 @@
           <div class="progress"><span id="prog"></span></div>
         </div>
       </div>
-
       <ul class="tracklist" id="trackList"></ul>
-
       <p class="hint">샘플 자리입니다 — 실제 음원(MP3)으로 교체하면 바로 재생됩니다. 키링 NFC에 <code>?track=2</code>처럼 붙이면 그 곡이 자동 선택됩니다.</p>
-
       <audio id="audio" preload="none"></audio>
     </div>
   </section>
 
-  <!-- EVENT BANNER -->
+  <!-- NFC WRITER -->
+  <section class="nfc">
+    <div class="wrap">
+      <p class="label">Write · NFC 키링에 쓰기</p>
+      <p class="nfc-desc">키링에 넣을 주소를 고른 뒤 [키링에 쓰기]를 누르고, 폰 뒷면을 키링에 가까이 대면 기록됩니다.</p>
+      <div class="nfc-form">
+        <label for="nfcPreset">넣을 내용</label>
+        <select id="nfcPreset"></select>
+        <label for="nfcUrl">주소(URL)</label>
+        <input id="nfcUrl" type="url" inputmode="url" placeholder="https://..." autocomplete="off">
+        <button class="btn" id="nfcWrite">키링에 쓰기</button>
+      </div>
+      <p class="nfc-status" id="nfcStatus"></p>
+      <p class="hint">NFC 쓰기는 안드로이드 크롬에서만 작동합니다. 아이폰은 기존 NFC 앱을 사용하세요.</p>
+    </div>
+  </section>
+
+  <!-- EVENT -->
   <section class="wrap">
     <div class="event">
       <p class="label">Pop-up Event</p>
@@ -290,28 +253,26 @@
 </footer>
 
 <script>
-  // ---- 곡 목록: 실제 MP3 경로로 교체하세요 ----
+  // ===== 곡 목록: 실제 MP3 경로로 교체 =====
   var tracks = [
     { title: "첫 번째 곡 (샘플)", by: "artcation", len: "0:00", src: "songs/track1.mp3" },
     { title: "두 번째 곡 (샘플)", by: "artcation", len: "0:00", src: "songs/track2.mp3" },
     { title: "세 번째 곡 (샘플)", by: "artcation", len: "0:00", src: "songs/track3.mp3" }
   ];
 
-  var audio   = document.getElementById('audio');
+  var audio = document.getElementById('audio');
   var playBtn = document.getElementById('playBtn');
-  var listEl  = document.getElementById('trackList');
-  var nowT    = document.getElementById('nowTitle');
-  var nowB    = document.getElementById('nowBy');
-  var prog    = document.getElementById('prog');
+  var listEl = document.getElementById('trackList');
+  var nowT = document.getElementById('nowTitle');
+  var nowB = document.getElementById('nowBy');
+  var prog = document.getElementById('prog');
   var current = -1;
 
-  // 트랙 목록 그리기
   tracks.forEach(function(t, i){
     var li = document.createElement('li');
-    var b  = document.createElement('button');
+    var b = document.createElement('button');
     b.className = 'track';
-    b.innerHTML =
-      '<span class="num">' + (i < 9 ? '0' : '') + (i + 1) + '</span>' +
+    b.innerHTML = '<span class="num">' + (i < 9 ? '0' : '') + (i + 1) + '</span>' +
       '<span class="t-title">' + t.title + '</span>' +
       '<span class="t-len">' + t.len + '</span>';
     b.addEventListener('click', function(){ select(i, true); });
@@ -320,7 +281,6 @@
   });
 
   function rows(){ return listEl.querySelectorAll('.track'); }
-
   function select(i, autoplay){
     current = i;
     var t = tracks[i];
@@ -330,34 +290,75 @@
     rows().forEach(function(r, idx){ r.classList.toggle('active', idx === i); });
     if (autoplay){ play(); }
   }
-
   function play(){
-    audio.play().then(function(){
-      playBtn.classList.add('is-playing');
-    }).catch(function(){
-      // 미리보기에는 음원 파일이 없어 재생되지 않습니다. 실제 MP3 추가 시 정상 작동합니다.
-      playBtn.classList.remove('is-playing');
-    });
+    audio.play().then(function(){ playBtn.classList.add('is-playing'); })
+      .catch(function(){ playBtn.classList.remove('is-playing'); });
   }
-
   playBtn.addEventListener('click', function(){
     if (current === -1){ select(0, true); return; }
-    if (audio.paused){ play(); }
-    else { audio.pause(); playBtn.classList.remove('is-playing'); }
+    if (audio.paused){ play(); } else { audio.pause(); playBtn.classList.remove('is-playing'); }
   });
-
   audio.addEventListener('timeupdate', function(){
     if (audio.duration){ prog.style.width = (audio.currentTime / audio.duration * 100) + '%'; }
   });
-  audio.addEventListener('ended', function(){
-    playBtn.classList.remove('is-playing');
-    prog.style.width = '0%';
-  });
+  audio.addEventListener('ended', function(){ playBtn.classList.remove('is-playing'); prog.style.width = '0%'; });
 
-  // NFC 패턴: ?track=2 처럼 들어오면 해당 곡을 미리 선택
   var params = new URLSearchParams(window.location.search);
   var q = parseInt(params.get('track'), 10);
   if (!isNaN(q) && q >= 1 && q <= tracks.length){ select(q - 1, false); }
+
+  // ===== NFC 쓰기 =====
+  var preset = document.getElementById('nfcPreset');
+  var urlInput = document.getElementById('nfcUrl');
+  var writeBtn = document.getElementById('nfcWrite');
+  var statusEl = document.getElementById('nfcStatus');
+  var origin = window.location.origin;
+
+  // 옵션 채우기: 홈페이지 + 각 곡 + 직접 입력
+  var opts = [{ label: '홈페이지 (메인)', url: origin + '/' }];
+  tracks.forEach(function(t, i){ opts.push({ label: (i + 1) + '번 곡 - ' + t.title, url: origin + '/?track=' + (i + 1) }); });
+  opts.push({ label: '직접 입력', url: '' });
+  opts.forEach(function(o, i){
+    var op = document.createElement('option');
+    op.value = i; op.textContent = o.label;
+    preset.appendChild(op);
+  });
+  urlInput.value = opts[0].url;
+
+  preset.addEventListener('change', function(){
+    var o = opts[parseInt(preset.value, 10)];
+    urlInput.value = o.url;
+    urlInput.readOnly = (o.label !== '직접 입력' && o.url !== '');
+    if (!urlInput.readOnly){ urlInput.focus(); }
+  });
+  urlInput.readOnly = true;
+
+  function setStatus(msg, cls){
+    statusEl.textContent = msg;
+    statusEl.className = 'nfc-status' + (cls ? ' ' + cls : '');
+  }
+
+  if (!('NDEFReader' in window)){
+    setStatus('ⓘ 이 브라우저는 NFC 쓰기를 지원하지 않습니다. 안드로이드 크롬에서 열어주세요.');
+  }
+
+  writeBtn.addEventListener('click', async function(){
+    var url = urlInput.value.trim();
+    if (!url){ setStatus('주소를 입력하세요.', 'err'); return; }
+    if (!/^https?:\/\//i.test(url)){ url = 'https://' + url; urlInput.value = url; }
+    if (!('NDEFReader' in window)){
+      setStatus('이 브라우저는 NFC 쓰기를 지원하지 않습니다. 안드로이드 크롬에서 열어주세요.', 'err');
+      return;
+    }
+    try{
+      setStatus('키링을 폰 뒷면에 가까이 대세요…');
+      var ndef = new NDEFReader();
+      await ndef.write({ records: [{ recordType: 'url', data: url }] });
+      setStatus('완료! 키링에 주소가 기록됐습니다.', 'ok');
+    }catch(e){
+      setStatus('실패: ' + (e && e.message ? e.message : '다시 시도해 주세요.'), 'err');
+    }
+  });
 </script>
 
 </body>
