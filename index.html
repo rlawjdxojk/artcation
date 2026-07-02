@@ -53,7 +53,8 @@
   .about p{font-family:var(--serif);font-size:clamp(19px,3.4vw,25px);line-height:1.6;color:var(--ink);}
   .about .meta{margin-top:26px;font-family:var(--sans);font-size:14.5px;line-height:1.8;color:#4a4842;}
 
-  .show-sec{padding:clamp(50px,9vw,84px) 0;border-top:1px solid var(--line);}
+  .show-sec{padding:clamp(24px,6vw,48px) 0 clamp(50px,9vw,84px);}
+  .event-sec{padding:0 0 clamp(8px,2vw,16px);}
 
   .event{background:var(--accent);color:var(--paper-on-accent);border-radius:18px;padding:clamp(32px,6vw,48px);margin:0 0 clamp(24px,4vw,32px);}
   .event .label{color:rgba(240,238,231,.6);}
@@ -173,32 +174,8 @@
     </div>
   </section>
 
-  <hr class="rule">
-
-  <section class="about">
-    <div class="wrap about-grid">
-      <p class="label" data-i18n-html="about_label">무엇을<br>만드나요</p>
-      <div>
-        <p data-i18n="about_lead">듣고 싶은 이야기를 한 곡으로. 그 곡을 작은 키링에 담아, 손끝에서 다시 꺼내 듣게 만듭니다.</p>
-        <p class="meta" data-i18n-html="about_meta">커스텀 송 제작 — 사연·분위기·길이를 듣고 한 곡을 만듭니다.<br>NFC 키링 — 폰을 탭하면 곡과 이 페이지가 열립니다.<br>소량 제작 — 선물, 기념, 행사 굿즈로.</p>
-      </div>
-    </div>
-  </section>
-
   <section class="show-sec">
     <div class="wrap">
-
-      <div class="event">
-        <p class="label" data-i18n="event_label">현장 팝업 이벤트</p>
-        <div class="dates">MSI 26 · 대전</div>
-        <h2 data-i18n="event_h2">MSI 26 기간, 대전 현장 팝업 마켓 참여</h2>
-        <p class="edesc" data-i18n="event_edesc">행사 기간 현장 부스에서 만나요. 즉석 제작 NFC 키링과 한정 굿즈를 준비했습니다.</p>
-        <div class="where">
-          <div><span data-i18n="event_place_l">장소</span><strong data-i18n="event_place_v">대전 · 플리마켓 부스</strong></div>
-          <div><span data-i18n="event_period_l">기간</span><strong data-i18n="event_period_v">7월 3일 – 7월 12일</strong></div>
-          <div><span data-i18n="event_hours_l">운영</span><strong data-i18n="event_hours_v">현장 운영 시간 내</strong></div>
-        </div>
-      </div>
 
       <div class="video" id="videoWrap">
         <div id="ytframe"></div>
@@ -230,6 +207,34 @@
       </div>
 
       <p class="hint" data-i18n="listen_hint">목록에서 곡을 고르거나, 아래에 유튜브 링크를 붙여넣어 바로 들어보세요.</p>
+    </div>
+  </section>
+
+  <section class="event-sec">
+    <div class="wrap">
+      <div class="event">
+        <p class="label" data-i18n="event_label">현장 팝업 이벤트</p>
+        <div class="dates">MSI 26 · 대전</div>
+        <h2 data-i18n="event_h2">MSI 26 기간, 대전 현장 팝업 마켓 참여</h2>
+        <p class="edesc" data-i18n="event_edesc">행사 기간 현장 부스에서 만나요. 즉석 제작 NFC 키링과 한정 굿즈를 준비했습니다.</p>
+        <div class="where">
+          <div><span data-i18n="event_place_l">장소</span><strong data-i18n="event_place_v">대전 · 플리마켓 부스</strong></div>
+          <div><span data-i18n="event_period_l">기간</span><strong data-i18n="event_period_v">7월 3일 – 7월 12일</strong></div>
+          <div><span data-i18n="event_hours_l">운영</span><strong data-i18n="event_hours_v">현장 운영 시간 내</strong></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section class="about">
+    <div class="wrap about-grid">
+      <p class="label" data-i18n-html="about_label">무엇을<br>만드나요</p>
+      <div>
+        <p data-i18n="about_lead">듣고 싶은 이야기를 한 곡으로. 그 곡을 작은 키링에 담아, 손끝에서 다시 꺼내 듣게 만듭니다.</p>
+        <p class="meta" data-i18n-html="about_meta">커스텀 송 제작 — 사연·분위기·길이를 듣고 한 곡을 만듭니다.<br>NFC 키링 — 폰을 탭하면 곡과 이 페이지가 열립니다.<br>소량 제작 — 선물, 기념, 행사 굿즈로.</p>
+      </div>
     </div>
   </section>
 
