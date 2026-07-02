@@ -53,8 +53,22 @@
   .about p{font-family:var(--serif);font-size:clamp(19px,3.4vw,25px);line-height:1.6;color:var(--ink);}
   .about .meta{margin-top:26px;font-family:var(--sans);font-size:14.5px;line-height:1.8;color:#4a4842;}
 
-  .listen{padding:clamp(50px,9vw,84px) 0;border-top:1px solid var(--line);}
-  .listen .label{margin-bottom:30px;}
+  .show-sec{padding:clamp(50px,9vw,84px) 0;border-top:1px solid var(--line);}
+
+  .event{background:var(--accent);color:var(--paper-on-accent);border-radius:18px;padding:clamp(32px,6vw,48px);margin:0 0 clamp(24px,4vw,32px);}
+  .event .label{color:rgba(240,238,231,.6);}
+  .event .dates{font-family:var(--serif);font-size:clamp(38px,8vw,64px);line-height:1.05;letter-spacing:0.01em;margin:16px 0 0;font-weight:400;}
+  .event h2{font-family:var(--sans);font-weight:600;font-size:clamp(16px,3vw,20px);margin:20px 0 0;letter-spacing:-0.01em;}
+  .event .edesc{margin:12px 0 0;max-width:430px;color:rgba(240,238,231,.78);font-size:15px;}
+  .event .where{margin:24px 0 0;padding-top:22px;border-top:1px solid rgba(240,238,231,.18);display:flex;gap:34px;flex-wrap:wrap;font-size:13.5px;}
+  .event .where span{display:block;color:rgba(240,238,231,.55);margin-bottom:3px;letter-spacing:0.04em;}
+  .event .where strong{font-weight:500;font-size:15px;}
+
+  .video{position:relative;border:1px solid var(--line);border-radius:14px;overflow:hidden;aspect-ratio:16/9;background:#000;}
+  .video #ytframe,.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  .video-empty{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;background:var(--paper);color:var(--gray);font-size:14px;}
+
+  .listen-lbl{margin-top:clamp(40px,7vw,58px);margin-bottom:24px;}
   .player{display:flex;align-items:center;gap:20px;}
   .play-btn{flex:none;width:54px;height:54px;border-radius:50%;border:0;cursor:pointer;background:var(--ink);color:var(--paper);display:flex;align-items:center;justify-content:center;transition:transform .2s ease;}
   .play-btn:hover{transform:scale(1.05);}
@@ -66,16 +80,11 @@
   .now-title{font-family:var(--serif);font-size:clamp(19px,3.4vw,24px);line-height:1.3;color:var(--ink);}
   .now-by{font-size:13px;color:var(--gray);margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 
-  .video{position:relative;margin-top:24px;border:1px solid var(--line);border-radius:14px;overflow:hidden;aspect-ratio:16/9;background:#000;display:none;}
-  .video.show{display:block;}
-  .video #ytframe,.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
-  .video-empty{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;background:var(--paper);color:var(--gray);font-size:14px;}
-
   .tracklist{list-style:none;margin:26px 0 0;border-top:1px solid var(--line);}
-  .track{width:100%;display:flex;align-items:center;gap:16px;background:none;border:0;cursor:pointer;text-align:left;padding:15px 4px;border-bottom:1px solid var(--line);font-family:var(--sans);color:var(--ink);transition:padding-left .2s ease;}
+  .track{width:100%;display:flex;align-items:center;gap:16px;background:none;border:0;cursor:pointer;text-align:left;padding:14px 4px;border-bottom:1px solid var(--line);font-family:var(--sans);color:var(--ink);transition:padding-left .2s ease;}
   .track:hover{padding-left:10px;}
-  .track .num{font-size:12px;color:var(--gray);width:22px;letter-spacing:0.05em;}
-  .track .t-title{flex:1;font-size:15.5px;}
+  .track .num{font-size:12px;color:var(--gray);width:24px;letter-spacing:0.05em;flex:none;}
+  .track .t-title{flex:1;font-size:15.5px;min-width:0;}
   .track.active .t-title{color:var(--accent);font-weight:600;}
   .track.active .num{color:var(--accent);}
 
@@ -87,7 +96,7 @@
   .cp-row .btn{border:0;cursor:pointer;justify-content:center;padding:13px 26px;}
   .cp-msg{margin-top:12px;font-size:13px;color:var(--gray);min-height:18px;}
   .cp-msg.err{color:#a23b3b;}
-  .listen .hint{margin-top:16px;font-size:12.5px;color:var(--gray);}
+  .show-sec .hint{margin-top:16px;font-size:12.5px;color:var(--gray);}
 
   .nfc{padding:clamp(50px,9vw,84px) 0;border-top:1px solid var(--line);}
   .nfc .label{margin-bottom:18px;}
@@ -102,16 +111,7 @@
   .nfc-status.err{color:#a23b3b;}
   .nfc .hint{margin-top:10px;font-size:12.5px;color:var(--gray);}
 
-  .event{background:var(--accent);color:var(--paper-on-accent);border-radius:18px;padding:clamp(34px,6vw,52px);margin:0 0 clamp(56px,10vw,90px);}
-  .event .label{color:rgba(240,238,231,.6);}
-  .event .dates{font-family:var(--serif);font-size:clamp(40px,9vw,72px);line-height:1;letter-spacing:0.01em;margin:18px 0 0;font-weight:400;}
-  .event h2{font-family:var(--sans);font-weight:600;font-size:clamp(17px,3vw,21px);margin:24px 0 0;letter-spacing:-0.01em;}
-  .event .edesc{margin:12px 0 0;max-width:430px;color:rgba(240,238,231,.78);font-size:15px;}
-  .event .where{margin:26px 0 0;padding-top:22px;border-top:1px solid rgba(240,238,231,.18);display:flex;gap:34px;flex-wrap:wrap;font-size:13.5px;}
-  .event .where span{display:block;color:rgba(240,238,231,.55);margin-bottom:3px;letter-spacing:0.04em;}
-  .event .where strong{font-weight:500;font-size:15px;}
-
-  .follow{padding:0 0 clamp(70px,11vw,100px);text-align:center;}
+  .follow{padding:clamp(56px,10vw,90px) 0 clamp(70px,11vw,100px);text-align:center;border-top:1px solid var(--line);}
   .follow h3{font-family:var(--serif);font-weight:400;font-size:clamp(24px,5vw,34px);line-height:1.4;margin:0 auto;max-width:460px;}
   .follow p{margin:18px auto 0;color:var(--gray);font-size:15px;max-width:400px;}
   .follow .channels{margin:34px 0 0;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
@@ -181,9 +181,27 @@
     </div>
   </section>
 
-  <section class="listen">
+  <section class="show-sec">
     <div class="wrap">
-      <p class="label" data-i18n="listen_label">들어보기</p>
+
+      <div class="event">
+        <p class="label" data-i18n="event_label">현장 팝업 이벤트</p>
+        <div class="dates">MSI 26 · 대전</div>
+        <h2 data-i18n="event_h2">MSI 26 기간, 대전 현장 팝업 마켓 참여</h2>
+        <p class="edesc" data-i18n="event_edesc">행사 기간 현장 부스에서 만나요. 즉석 제작 NFC 키링과 한정 굿즈를 준비했습니다.</p>
+        <div class="where">
+          <div><span data-i18n="event_place_l">장소</span><strong data-i18n="event_place_v">대전 · 플리마켓 부스</strong></div>
+          <div><span data-i18n="event_period_l">기간</span><strong data-i18n="event_period_v">7월 3일 – 7월 12일</strong></div>
+          <div><span data-i18n="event_hours_l">운영</span><strong data-i18n="event_hours_v">현장 운영 시간 내</strong></div>
+        </div>
+      </div>
+
+      <div class="video" id="videoWrap">
+        <div id="ytframe"></div>
+        <div class="video-empty" id="videoEmpty" data-i18n="listen_empty">여기에 유튜브 영상이 재생됩니다.</div>
+      </div>
+
+      <p class="label listen-lbl" data-i18n="listen_label">들어보기</p>
       <div class="player">
         <button class="play-btn" id="playBtn" aria-label="play / pause">
           <svg class="ico-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
@@ -194,10 +212,7 @@
           <div class="now-by" id="nowBy">artcation</div>
         </div>
       </div>
-      <div class="video" id="videoWrap">
-        <div id="ytframe"></div>
-        <div class="video-empty" id="videoEmpty" data-i18n="listen_empty">여기에 유튜브 영상이 재생됩니다.</div>
-      </div>
+
       <ul class="tracklist" id="trackList"></ul>
 
       <div class="custom-play">
@@ -209,7 +224,7 @@
         <p class="cp-msg" id="customMsg"></p>
       </div>
 
-      <p class="hint" data-i18n="listen_hint">각 곡에 유튜브 링크를 연결하면 여기서 바로 재생됩니다.</p>
+      <p class="hint" data-i18n="listen_hint">목록에서 곡을 고르거나, 아래에 유튜브 링크를 붙여넣어 바로 들어보세요.</p>
     </div>
   </section>
 
@@ -226,20 +241,6 @@
       </div>
       <p class="nfc-status" id="nfcStatus"></p>
       <p class="hint" data-i18n="nfc_hint">NFC 쓰기는 안드로이드 크롬에서만 작동합니다. 아이폰은 기존 NFC 앱을 사용하세요.</p>
-    </div>
-  </section>
-
-  <section class="wrap">
-    <div class="event">
-      <p class="label" data-i18n="event_label">팝업 이벤트</p>
-      <div class="dates">07.03 — 07.12</div>
-      <h2 data-i18n="event_h2">대전 e스포츠 시즌, 현장 팝업 마켓</h2>
-      <p class="edesc" data-i18n="event_edesc">시즌 기간 한정으로 현장에서 만나요. 즉석 제작 키링과 한정 굿즈를 준비했습니다.</p>
-      <div class="where">
-        <div><span data-i18n="event_place_l">장소</span><strong data-i18n="event_place_v">대전 · 플리마켓 부스</strong></div>
-        <div><span data-i18n="event_period_l">기간</span><strong data-i18n="event_period_v">7월 3일 – 7월 12일</strong></div>
-        <div><span data-i18n="event_hours_l">운영</span><strong data-i18n="event_hours_v">현장 운영 시간 내</strong></div>
-      </div>
     </div>
   </section>
 
@@ -263,11 +264,21 @@
 </footer>
 
 <script>
-  // ===== 곡 목록: yt 에 유튜브 링크(또는 영상 ID)를 넣으세요 =====
-  var tracks = [
-    { title: "첫 번째 곡 (샘플)", by: "artcation", yt: "" },
-    { title: "두 번째 곡 (샘플)", by: "artcation", yt: "" },
-    { title: "세 번째 곡 (샘플)", by: "artcation", yt: "" }
+  // ===== 재생목록 & 곡 목록 (재생목록 순서와 동일하게 1~12) =====
+  var PLAYLIST='PLAuReJsC1t_8';
+  var tracks=[
+    { title:"Warriors",            by:"ft. Imagine Dragons · Worlds 2014" },
+    { title:"Worlds Collide",      by:"ft. Nicki Taylor · Worlds 2015" },
+    { title:"Ignite",              by:"ft. Zedd · Worlds 2016" },
+    { title:"RISE",                by:"ft. The Glitch Mob, Mako, The Word Alive · Worlds 2018" },
+    { title:"Phoenix",             by:"ft. Cailin Russo, Chrissy Costanza · Worlds 2019" },
+    { title:"Take Over",           by:"ft. Jeremy McKinnon, MAX, Henry · Worlds 2020" },
+    { title:"Burn It All Down",    by:"ft. PVRIS · Worlds 2021" },
+    { title:"GODS",                by:"ft. NewJeans · Worlds 2023" },
+    { title:"Heavy Is The Crown",  by:"ft. Linkin Park · Worlds 2024" },
+    { title:"Sacrifice",           by:"ft. G.E.M. · Worlds 2025" },
+    { title:"Legends Never Die",   by:"ft. Against The Current · Worlds 2017" },
+    { title:"Star Walkin'",        by:"Lil Nas X · Worlds 2022" }
   ];
 
   var playBtn=document.getElementById('playBtn'),listEl=document.getElementById('trackList'),
@@ -275,83 +286,90 @@
       videoWrap=document.getElementById('videoWrap'),videoEmpty=document.getElementById('videoEmpty'),
       customInput=document.getElementById('customUrl'),customBtn=document.getElementById('customPlay'),
       customMsg=document.getElementById('customMsg'),
-      current=-1,activeId='';
+      current=-1,hasActive=false;
 
-  function ytId(s){
-    if(!s)return '';
-    var m=s.match(/(?:youtu\.be\/|v=|embed\/|shorts\/|live\/)([A-Za-z0-9_-]{11})/);
-    if(m)return m[1];
-    if(/^[A-Za-z0-9_-]{11}$/.test(s))return s;
-    return '';
+  function ytParse(s){
+    var vid='',list='';
+    if(!s)return {vid:'',list:''};
+    var mv=s.match(/(?:youtu\.be\/|v=|embed\/|shorts\/|live\/)([A-Za-z0-9_-]{11})/);
+    if(mv)vid=mv[1];
+    var ml=s.match(/[?&]list=([A-Za-z0-9_-]+)/);
+    if(ml)list=ml[1];
+    if(!vid&&/^[A-Za-z0-9_-]{11}$/.test(s))vid=s;
+    return {vid:vid,list:list};
   }
 
   tracks.forEach(function(t,i){
     var li=document.createElement('li'),b=document.createElement('button');
     b.className='track';
     b.innerHTML='<span class="num">'+(i<9?'0':'')+(i+1)+'</span><span class="t-title">'+t.title+'</span>';
-    b.addEventListener('click',function(){select(i);});
+    b.addEventListener('click',function(){select(i,true);});
     li.appendChild(b);listEl.appendChild(li);
   });
   function rows(){return listEl.querySelectorAll('.track');}
+  function setNow(i){
+    nowT.textContent=tracks[i].title;nowB.textContent=tracks[i].by;
+    rows().forEach(function(r,k){r.classList.toggle('active',k===i);});
+  }
+  function showVideo(){videoWrap.classList.add('show');videoEmpty.style.display='none';hasActive=true;}
 
   // 유튜브 IFrame API
-  var YT_READY=false,player=null,pendingId=null;
+  var YT_READY=false,player=null,pendingFn=null,playlistReady=false;
+  function whenReady(fn){if(YT_READY&&player)fn();else pendingFn=fn;}
   var tag=document.createElement('script');tag.src="https://www.youtube.com/iframe_api";
   document.head.appendChild(tag);
   window.onYouTubeIframeAPIReady=function(){
     player=new YT.Player('ytframe',{
       playerVars:{playsinline:1,rel:0,modestbranding:1},
       events:{
-        onReady:function(){YT_READY=true;if(pendingId){player.loadVideoById(pendingId);pendingId=null;}},
+        onReady:function(){YT_READY=true;if(pendingFn){var f=pendingFn;pendingFn=null;f();}},
         onStateChange:function(e){
-          if(e.data===YT.PlayerState.PLAYING)playBtn.classList.add('is-playing');
-          else playBtn.classList.remove('is-playing');
+          if(e.data===YT.PlayerState.PLAYING){
+            playBtn.classList.add('is-playing');
+            if(playlistReady&&player.getPlaylistIndex){
+              var idx=player.getPlaylistIndex();
+              if(idx>=0&&idx<tracks.length&&idx!==current){current=idx;setNow(idx);}
+            }
+          }else playBtn.classList.remove('is-playing');
         }
       }
     });
   };
 
-  function loadVideo(id){
-    activeId=id;
-    videoWrap.classList.add('show');
-    videoEmpty.style.display='none';
-    if(YT_READY&&player&&player.loadVideoById)player.loadVideoById(id);
-    else pendingId=id;
+  // 번호 곡 재생 (재생목록 인덱스 기반)
+  function select(i,autoplay){
+    current=i;setNow(i);showVideo();
+    whenReady(function(){
+      if(playlistReady){player.playVideoAt(i);}
+      else{
+        if(autoplay)player.loadPlaylist({list:PLAYLIST,listType:'playlist',index:i});
+        else player.cuePlaylist({list:PLAYLIST,listType:'playlist',index:i});
+        playlistReady=true;
+      }
+    });
   }
 
-  function select(i){
-    current=i;var t=tracks[i];
-    nowT.textContent=t.title;nowB.textContent=t.by;
-    rows().forEach(function(r,idx){r.classList.toggle('active',idx===i);});
-    var id=ytId(t.yt);
-    if(!id){
-      activeId='';
-      if(player&&player.stopVideo)player.stopVideo();
-      playBtn.classList.remove('is-playing');
-      videoWrap.classList.add('show');
-      videoEmpty.style.display='flex';
-      return;
-    }
-    loadVideo(id);
-  }
-
+  // 직접 링크 재생
   function playCustom(){
     var d=dict[currentLang],raw=customInput.value.trim();
     if(!raw){setCustomMsg(d.custom_need,'err');return;}
-    var id=ytId(raw);
-    if(!id){setCustomMsg(d.custom_invalid,'err');return;}
+    var m=ytParse(raw);
+    if(!m.vid&&!m.list){setCustomMsg(d.custom_invalid,'err');return;}
     setCustomMsg('','');
-    current=-1;
-    rows().forEach(function(r){r.classList.remove('active');});
+    current=-1;rows().forEach(function(r){r.classList.remove('active');});
     nowT.textContent=d.custom_now;nowB.textContent='YouTube';
-    loadVideo(id);
+    showVideo();playlistReady=false;
+    whenReady(function(){
+      if(m.list)player.loadPlaylist({list:m.list,listType:'playlist'});
+      else player.loadVideoById(m.vid);
+    });
   }
   function setCustomMsg(msg,cls){customMsg.textContent=msg;customMsg.className='cp-msg'+(cls?' '+cls:'');}
   customBtn.addEventListener('click',playCustom);
   customInput.addEventListener('keydown',function(e){if(e.key==='Enter')playCustom();});
 
   playBtn.addEventListener('click',function(){
-    if(!activeId){if(tracks.length)select(0);return;}
+    if(!hasActive){select(0,true);return;}
     if(!YT_READY||!player)return;
     var st=player.getPlayerState();
     if(st===YT.PlayerState.PLAYING)player.pauseVideo();else player.playVideo();
@@ -361,12 +379,12 @@
 
   /* ===== i18n ===== */
   var dict={
-    ko:{hero_eyebrow:"커스텀 송 · 작곡",hero_title:"당신의 순간을<br><em>노래</em>로 남깁니다",hero_sub:"원하는 이야기를 담은 단 하나의 곡. NFC 키링에 새겨, 폰을 갖다 대면 언제든 다시 흐르는 사운드.",hero_cta:"인스타그램 팔로우",hero_note:"제작 문의 · 커스텀 곡 주문",about_label:"무엇을<br>만드나요",about_lead:"듣고 싶은 이야기를 한 곡으로. 그 곡을 작은 키링에 담아, 손끝에서 다시 꺼내 듣게 만듭니다.",about_meta:"커스텀 송 제작 — 사연·분위기·길이를 듣고 한 곡을 만듭니다.<br>NFC 키링 — 폰을 탭하면 곡과 이 페이지가 열립니다.<br>소량 제작 — 선물, 기념, 행사 굿즈로.",listen_label:"들어보기",listen_now_default:"곡을 선택하세요",listen_empty:"여기에 유튜브 영상이 재생됩니다.",listen_hint:"목록에서 곡을 고르거나, 아래에 유튜브 링크를 붙여넣어 바로 들어보세요.",custom_label:"직접 링크로 재생",custom_ph:"유튜브 링크 붙여넣기",custom_btn:"재생",custom_now:"요청하신 곡",custom_need:"링크를 입력하세요.",custom_invalid:"유효한 유튜브 링크가 아니에요.",nfc_label:"NFC 키링에 쓰기",nfc_desc:"키링에 넣을 주소를 고른 뒤 버튼을 누르고, 폰 뒷면을 키링에 가까이 대면 기록됩니다.",nfc_field_content:"넣을 내용",nfc_field_url:"주소 (URL)",nfc_btn:"키링에 쓰기",nfc_opt_home:"홈페이지 (메인)",nfc_opt_track:"{n}번 곡",nfc_opt_custom:"직접 입력",nfc_hint:"NFC 쓰기는 안드로이드 크롬에서만 작동합니다. 아이폰은 기존 NFC 앱을 사용하세요.",nfc_need_url:"주소를 입력하세요.",nfc_unsupported:"이 브라우저는 NFC 쓰기를 지원하지 않습니다. 안드로이드 크롬에서 열어주세요.",nfc_tap:"키링을 폰 뒷면에 가까이 대고 기다리세요…",nfc_done:"완료! 키링에 주소가 기록됐습니다.",nfc_fail_perm:"NFC 권한이 거부되었거나 NFC가 꺼져 있어요. 설정에서 NFC를 켜고 다시 시도하세요.",nfc_fail_move:"태그를 너무 빨리 뗐어요. 다시 대고 잠시 가만히 유지하세요.",nfc_fail_generic:"기록 실패: ",event_label:"팝업 이벤트",event_h2:"대전 e스포츠 시즌, 현장 팝업 마켓",event_edesc:"시즌 기간 한정으로 현장에서 만나요. 즉석 제작 키링과 한정 굿즈를 준비했습니다.",event_place_l:"장소",event_place_v:"대전 · 플리마켓 부스",event_period_l:"기간",event_period_v:"7월 3일 – 7월 12일",event_hours_l:"운영",event_hours_v:"현장 운영 시간 내",follow_h3:"행사가 끝나도, 새로운 곡과 소식을 가장 먼저.",follow_p:"팔로우해 두면 다음 제작 오픈과 한정 이벤트 소식을 놓치지 않아요.",follow_kakao:"카카오톡 채널",footer_tagline:"당신의 순간을 노래로"},
-    en:{hero_eyebrow:"Custom Song · Composing",hero_title:"Your moment,<br>kept as a <em>song</em>",hero_sub:"One song made from your story — engraved on an NFC keyring. Just tap your phone and it plays again.",hero_cta:"Follow on Instagram",hero_note:"Commissions · Custom song orders",about_label:"What<br>we make",about_lead:"Your story, turned into a single song — kept in a small keyring you can play again with a touch.",about_meta:"Custom songs — we listen to your story, mood and length, and compose one track.<br>NFC keyring — tap your phone to open the song and this page.<br>Small batches — for gifts, keepsakes and events.",listen_label:"Listen",listen_now_default:"Choose a track",listen_empty:"A YouTube video will play here.",listen_hint:"Pick a track from the list, or paste a YouTube link below to play it now.",custom_label:"Play your own link",custom_ph:"Paste a YouTube link",custom_btn:"Play",custom_now:"Your track",custom_need:"Please enter a link.",custom_invalid:"That's not a valid YouTube link.",nfc_label:"Write to NFC keyring",nfc_desc:"Pick the link to store, press the button, then hold the back of your phone near the keyring to write it.",nfc_field_content:"What to store",nfc_field_url:"Address (URL)",nfc_btn:"Write to keyring",nfc_opt_home:"Homepage (main)",nfc_opt_track:"Track {n}",nfc_opt_custom:"Custom link",nfc_hint:"NFC writing works only in Chrome on Android. On iPhone, use your usual NFC app.",nfc_need_url:"Please enter an address.",nfc_unsupported:"This browser can't write NFC. Please open it in Chrome on Android.",nfc_tap:"Hold the keyring near the back of your phone and wait…",nfc_done:"Done! The link was written to the keyring.",nfc_fail_perm:"NFC permission was denied or NFC is off. Turn on NFC in settings and try again.",nfc_fail_move:"The tag was moved too soon. Hold it steady and try again.",nfc_fail_generic:"Write failed: ",event_label:"Pop-up Event",event_h2:"Daejeon esports season — on-site pop-up market",event_edesc:"Meet us on-site for a limited season run. Made-on-the-spot keyrings and limited goods.",event_place_l:"Place",event_place_v:"Daejeon · Flea market booth",event_period_l:"Dates",event_period_v:"Jul 3 – Jul 12",event_hours_l:"Hours",event_hours_v:"During on-site hours",follow_h3:"After the event, be first to hear new songs and news.",follow_p:"Follow along so you never miss the next drop or limited event.",follow_kakao:"KakaoTalk channel",footer_tagline:"Your moment, as a song"},
-    zh:{hero_eyebrow:"定制歌曲 · 作曲",hero_title:"把你的瞬间<br>留成一首<em>歌</em>",hero_sub:"用你的故事谱成的唯一一首歌，刻进 NFC 钥匙扣。手机轻轻一碰，旋律再次响起。",hero_cta:"在 Instagram 关注",hero_note:"定制委托 · 专属歌曲订制",about_label:"我们<br>做什么",about_lead:"把你想听的故事谱成一首歌，装进小小的钥匙扣，轻轻一触便再次响起。",about_meta:"定制歌曲 — 聆听你的故事、氛围与长度，谱写一首专属曲目。<br>NFC 钥匙扣 — 手机轻触即可打开歌曲与本页。<br>小批量制作 — 用于礼物、纪念与活动。",listen_label:"试听",listen_now_default:"请选择歌曲",listen_empty:"此处将播放 YouTube 视频。",listen_hint:"从列表选择歌曲，或在下方粘贴 YouTube 链接即可立即播放。",custom_label:"播放你的链接",custom_ph:"粘贴 YouTube 链接",custom_btn:"播放",custom_now:"你的歌曲",custom_need:"请输入链接。",custom_invalid:"这不是有效的 YouTube 链接。",nfc_label:"写入 NFC 钥匙扣",nfc_desc:"选择要写入的链接，点击按钮，再将手机背面靠近钥匙扣即可写入。",nfc_field_content:"写入内容",nfc_field_url:"地址（URL）",nfc_btn:"写入钥匙扣",nfc_opt_home:"主页（首页）",nfc_opt_track:"第 {n} 首",nfc_opt_custom:"自定义链接",nfc_hint:"NFC 写入仅在安卓 Chrome 中有效。iPhone 请使用原有的 NFC 应用。",nfc_need_url:"请输入地址。",nfc_unsupported:"此浏览器无法写入 NFC，请在安卓 Chrome 中打开。",nfc_tap:"将钥匙扣靠近手机背面并稍候…",nfc_done:"完成！链接已写入钥匙扣。",nfc_fail_perm:"NFC 权限被拒绝或 NFC 已关闭。请在设置中开启 NFC 后重试。",nfc_fail_move:"标签移开太快，请贴稳后重试。",nfc_fail_generic:"写入失败：",event_label:"快闪活动",event_h2:"大田电竞季 · 现场快闪市集",event_edesc:"赛季限定，现场与你相见。提供即时制作钥匙扣与限定周边。",event_place_l:"地点",event_place_v:"大田 · 跳蚤市场摊位",event_period_l:"日期",event_period_v:"7月3日 – 7月12日",event_hours_l:"时间",event_hours_v:"现场营业时间内",follow_h3:"活动结束后，也第一时间收到新歌与消息。",follow_p:"关注我们，不错过下次开售与限定活动。",follow_kakao:"KakaoTalk 频道",footer_tagline:"把你的瞬间留成一首歌"},
-    ja:{hero_eyebrow:"カスタムソング · 作曲",hero_title:"あなたの瞬間を<br><em>歌</em>に残す",hero_sub:"あなたの物語から生まれる、たった一つの曲。NFCキーリングに刻み、スマホをかざせばまた流れ出す。",hero_cta:"Instagramをフォロー",hero_note:"制作のご依頼 · オーダーメイド楽曲",about_label:"つくる<br>もの",about_lead:"聴きたい物語を一曲に。小さなキーリングに収め、ふれるたびにまた呼び起こせます。",about_meta:"カスタムソング — 物語・雰囲気・長さをうかがい、一曲を作ります。<br>NFCキーリング — スマホをかざすと曲とこのページが開きます。<br>少量制作 — 贈り物・記念・イベントに。",listen_label:"試聴",listen_now_default:"曲を選んでください",listen_empty:"ここに YouTube 動画が再生されます。",listen_hint:"リストから曲を選ぶか、下に YouTube リンクを貼り付けてすぐ再生できます。",custom_label:"自分のリンクで再生",custom_ph:"YouTube リンクを貼り付け",custom_btn:"再生",custom_now:"リクエスト曲",custom_need:"リンクを入力してください。",custom_invalid:"有効な YouTube リンクではありません。",nfc_label:"NFCキーリングに書き込む",nfc_desc:"書き込むリンクを選び、ボタンを押して、スマホの背面をキーリングに近づけると書き込まれます。",nfc_field_content:"書き込む内容",nfc_field_url:"アドレス（URL）",nfc_btn:"キーリングに書き込む",nfc_opt_home:"ホームページ（メイン）",nfc_opt_track:"{n}曲目",nfc_opt_custom:"自由入力",nfc_hint:"NFC書き込みはAndroidのChromeのみ対応です。iPhoneは従来のNFCアプリをご利用ください。",nfc_need_url:"アドレスを入力してください。",nfc_unsupported:"このブラウザはNFC書き込みに対応していません。AndroidのChromeで開いてください。",nfc_tap:"キーリングをスマホ背面に近づけてお待ちください…",nfc_done:"完了！キーリングにアドレスを書き込みました。",nfc_fail_perm:"NFCの権限が拒否されたか、NFCがオフです。設定でNFCをオンにして再試行してください。",nfc_fail_move:"タグを離すのが早すぎました。当てたまま少し待ってください。",nfc_fail_generic:"書き込み失敗：",event_label:"ポップアップイベント",event_h2:"大田 eスポーツシーズン・現地ポップアップマーケット",event_edesc:"シーズン限定で現地にて。その場で作るキーリングと限定グッズをご用意。",event_place_l:"場所",event_place_v:"大田 · フリーマーケット出店",event_period_l:"期間",event_period_v:"7月3日 – 7月12日",event_hours_l:"営業",event_hours_v:"現地営業時間内",follow_h3:"イベントの後も、新しい曲とお知らせをいち早く。",follow_p:"フォローしておくと、次の販売や限定イベントを見逃しません。",follow_kakao:"KakaoTalkチャンネル",footer_tagline:"あなたの瞬間を歌に"},
-    ru:{hero_eyebrow:"Песня на заказ · Сочинение",hero_title:"Ваш момент,<br>сохранённый как <em>песня</em>",hero_sub:"Одна песня из вашей истории — на NFC-брелоке. Поднесите телефон, и она зазвучит снова.",hero_cta:"Подписаться в Instagram",hero_note:"Заказы · Песни на заказ",about_label:"Что мы<br>делаем",about_lead:"Вашу историю превращаем в одну песню и храним в маленьком брелоке — коснитесь, и она зазвучит снова.",about_meta:"Песни на заказ — слушаем вашу историю, настроение и длину и пишем один трек.<br>NFC-брелок — коснитесь телефоном, чтобы открыть песню и эту страницу.<br>Малые тиражи — для подарков, памяти и мероприятий.",listen_label:"Послушать",listen_now_default:"Выберите трек",listen_empty:"Здесь будет играть видео с YouTube.",listen_hint:"Выберите трек из списка или вставьте ссылку YouTube ниже, чтобы включить сейчас.",custom_label:"Воспроизвести свою ссылку",custom_ph:"Вставьте ссылку YouTube",custom_btn:"Играть",custom_now:"Ваш трек",custom_need:"Введите ссылку.",custom_invalid:"Это недействительная ссылка YouTube.",nfc_label:"Запись на NFC-брелок",nfc_desc:"Выберите ссылку, нажмите кнопку и поднесите заднюю часть телефона к брелоку, чтобы записать.",nfc_field_content:"Что записать",nfc_field_url:"Адрес (URL)",nfc_btn:"Записать на брелок",nfc_opt_home:"Главная страница",nfc_opt_track:"Трек {n}",nfc_opt_custom:"Своя ссылка",nfc_hint:"Запись NFC работает только в Chrome на Android. На iPhone используйте привычное NFC-приложение.",nfc_need_url:"Введите адрес.",nfc_unsupported:"Этот браузер не умеет записывать NFC. Откройте в Chrome на Android.",nfc_tap:"Поднесите брелок к задней части телефона и подождите…",nfc_done:"Готово! Ссылка записана на брелок.",nfc_fail_perm:"Доступ к NFC запрещён или NFC выключен. Включите NFC в настройках и повторите.",nfc_fail_move:"Метку убрали слишком рано. Держите её ровно и повторите.",nfc_fail_generic:"Ошибка записи: ",event_label:"Поп-ап мероприятие",event_h2:"Сезон киберспорта в Тэджоне — поп-ап маркет",event_edesc:"Встречаемся вживую только в этот сезон. Брелоки на месте и лимитированный мерч.",event_place_l:"Место",event_place_v:"Тэджон · Стенд на маркете",event_period_l:"Даты",event_period_v:"3 июля – 12 июля",event_hours_l:"Часы",event_hours_v:"В часы работы на месте",follow_h3:"После события — первыми узнавайте о новых песнях и новостях.",follow_p:"Подпишитесь, чтобы не пропустить новый дроп и лимитированные события.",follow_kakao:"Канал KakaoTalk",footer_tagline:"Ваш момент — как песня"},
-    de:{hero_eyebrow:"Song nach Maß · Komposition",hero_title:"Dein Moment,<br>bewahrt als <em>Song</em>",hero_sub:"Ein Song aus deiner Geschichte — auf einem NFC-Schlüsselanhänger. Handy dranhalten, und er spielt wieder.",hero_cta:"Auf Instagram folgen",hero_note:"Aufträge · Songs nach Maß",about_label:"Was wir<br>machen",about_lead:"Deine Geschichte wird zu einem Song — bewahrt in einem kleinen Anhänger, den du mit einer Berührung wieder abspielst.",about_meta:"Songs nach Maß — wir hören deine Geschichte, Stimmung und Länge und komponieren einen Track.<br>NFC-Anhänger — Handy dranhalten, um Song und Seite zu öffnen.<br>Kleine Auflagen — für Geschenke, Andenken und Events.",listen_label:"Anhören",listen_now_default:"Titel wählen",listen_empty:"Hier spielt ein YouTube-Video.",listen_hint:"Wähle einen Titel aus der Liste oder füge unten einen YouTube-Link ein, um ihn jetzt abzuspielen.",custom_label:"Eigenen Link abspielen",custom_ph:"YouTube-Link einfügen",custom_btn:"Abspielen",custom_now:"Dein Titel",custom_need:"Bitte einen Link eingeben.",custom_invalid:"Kein gültiger YouTube-Link.",nfc_label:"Auf NFC-Anhänger schreiben",nfc_desc:"Link auswählen, Knopf drücken und die Rückseite des Handys an den Anhänger halten, um zu schreiben.",nfc_field_content:"Was speichern",nfc_field_url:"Adresse (URL)",nfc_btn:"Auf Anhänger schreiben",nfc_opt_home:"Startseite (Haupt)",nfc_opt_track:"Titel {n}",nfc_opt_custom:"Eigener Link",nfc_hint:"NFC-Schreiben funktioniert nur in Chrome unter Android. Auf dem iPhone die übliche NFC-App nutzen.",nfc_need_url:"Bitte eine Adresse eingeben.",nfc_unsupported:"Dieser Browser kann kein NFC schreiben. Bitte in Chrome unter Android öffnen.",nfc_tap:"Anhänger an die Rückseite des Handys halten und warten…",nfc_done:"Fertig! Der Link wurde auf den Anhänger geschrieben.",nfc_fail_perm:"NFC-Berechtigung verweigert oder NFC ist aus. NFC in den Einstellungen aktivieren und erneut versuchen.",nfc_fail_move:"Tag zu früh entfernt. Ruhig halten und erneut versuchen.",nfc_fail_generic:"Schreiben fehlgeschlagen: ",event_label:"Pop-up-Event",event_h2:"Daejeon E-Sport-Saison — Pop-up-Markt vor Ort",event_edesc:"Nur in dieser Saison vor Ort. Anhänger direkt gefertigt und limitierte Goods.",event_place_l:"Ort",event_place_v:"Daejeon · Flohmarktstand",event_period_l:"Daten",event_period_v:"3. Juli – 12. Juli",event_hours_l:"Zeiten",event_hours_v:"Während der Öffnungszeiten vor Ort",follow_h3:"Auch nach dem Event neue Songs und News zuerst erfahren.",follow_p:"Folge uns, um den nächsten Drop und limitierte Events nicht zu verpassen.",follow_kakao:"KakaoTalk-Kanal",footer_tagline:"Dein Moment, als Song"}
+    ko:{hero_eyebrow:"커스텀 송 · 작곡",hero_title:"당신의 순간을<br><em>노래</em>로 남깁니다",hero_sub:"원하는 이야기를 담은 단 하나의 곡. NFC 키링에 새겨, 폰을 갖다 대면 언제든 다시 흐르는 사운드.",hero_cta:"인스타그램 팔로우",hero_note:"제작 문의 · 커스텀 곡 주문",about_label:"무엇을<br>만드나요",about_lead:"듣고 싶은 이야기를 한 곡으로. 그 곡을 작은 키링에 담아, 손끝에서 다시 꺼내 듣게 만듭니다.",about_meta:"커스텀 송 제작 — 사연·분위기·길이를 듣고 한 곡을 만듭니다.<br>NFC 키링 — 폰을 탭하면 곡과 이 페이지가 열립니다.<br>소량 제작 — 선물, 기념, 행사 굿즈로.",listen_label:"들어보기",listen_now_default:"곡을 선택하세요",listen_empty:"여기에 유튜브 영상이 재생됩니다.",listen_hint:"목록에서 곡을 고르거나, 아래에 유튜브 링크를 붙여넣어 바로 들어보세요.",custom_label:"직접 링크로 재생",custom_ph:"유튜브 링크 붙여넣기",custom_btn:"재생",custom_now:"요청하신 곡",custom_need:"링크를 입력하세요.",custom_invalid:"유효한 유튜브 링크가 아니에요.",nfc_label:"NFC 키링에 쓰기",nfc_desc:"키링에 넣을 주소를 고른 뒤 버튼을 누르고, 폰 뒷면을 키링에 가까이 대면 기록됩니다.",nfc_field_content:"넣을 내용",nfc_field_url:"주소 (URL)",nfc_btn:"키링에 쓰기",nfc_opt_home:"홈페이지 (메인)",nfc_opt_track:"{n}번",nfc_opt_custom:"직접 입력",nfc_hint:"NFC 쓰기는 안드로이드 크롬에서만 작동합니다. 아이폰은 기존 NFC 앱을 사용하세요.",nfc_need_url:"주소를 입력하세요.",nfc_unsupported:"이 브라우저는 NFC 쓰기를 지원하지 않습니다. 안드로이드 크롬에서 열어주세요.",nfc_tap:"키링을 폰 뒷면에 가까이 대고 기다리세요…",nfc_done:"완료! 키링에 주소가 기록됐습니다.",nfc_fail_perm:"NFC 권한이 거부되었거나 NFC가 꺼져 있어요. 설정에서 NFC를 켜고 다시 시도하세요.",nfc_fail_move:"태그를 너무 빨리 뗐어요. 다시 대고 잠시 가만히 유지하세요.",nfc_fail_generic:"기록 실패: ",event_label:"현장 팝업 이벤트",event_h2:"MSI 26 기간, 대전 현장 팝업 마켓 참여",event_edesc:"행사 기간 현장 부스에서 만나요. 즉석 제작 NFC 키링과 한정 굿즈를 준비했습니다.",event_place_l:"장소",event_place_v:"대전 · 플리마켓 부스",event_period_l:"기간",event_period_v:"7월 3일 – 7월 12일",event_hours_l:"운영",event_hours_v:"현장 운영 시간 내",follow_h3:"행사가 끝나도, 새로운 곡과 소식을 가장 먼저.",follow_p:"팔로우해 두면 다음 제작 오픈과 한정 이벤트 소식을 놓치지 않아요.",follow_kakao:"카카오톡 채널",footer_tagline:"당신의 순간을 노래로"},
+    en:{hero_eyebrow:"Custom Song · Composing",hero_title:"Your moment,<br>kept as a <em>song</em>",hero_sub:"One song made from your story — engraved on an NFC keyring. Just tap your phone and it plays again.",hero_cta:"Follow on Instagram",hero_note:"Commissions · Custom song orders",about_label:"What<br>we make",about_lead:"Your story, turned into a single song — kept in a small keyring you can play again with a touch.",about_meta:"Custom songs — we listen to your story, mood and length, and compose one track.<br>NFC keyring — tap your phone to open the song and this page.<br>Small batches — for gifts, keepsakes and events.",listen_label:"Listen",listen_now_default:"Choose a track",listen_empty:"A YouTube video will play here.",listen_hint:"Pick a track from the list, or paste a YouTube link below to play it now.",custom_label:"Play your own link",custom_ph:"Paste a YouTube link",custom_btn:"Play",custom_now:"Your track",custom_need:"Please enter a link.",custom_invalid:"That's not a valid YouTube link.",nfc_label:"Write to NFC keyring",nfc_desc:"Pick the link to store, press the button, then hold the back of your phone near the keyring to write it.",nfc_field_content:"What to store",nfc_field_url:"Address (URL)",nfc_btn:"Write to keyring",nfc_opt_home:"Homepage (main)",nfc_opt_track:"No. {n}",nfc_opt_custom:"Custom link",nfc_hint:"NFC writing works only in Chrome on Android. On iPhone, use your usual NFC app.",nfc_need_url:"Please enter an address.",nfc_unsupported:"This browser can't write NFC. Please open it in Chrome on Android.",nfc_tap:"Hold the keyring near the back of your phone and wait…",nfc_done:"Done! The link was written to the keyring.",nfc_fail_perm:"NFC permission was denied or NFC is off. Turn on NFC in settings and try again.",nfc_fail_move:"The tag was moved too soon. Hold it steady and try again.",nfc_fail_generic:"Write failed: ",event_label:"On-site Pop-up",event_h2:"Pop-up market in Daejeon during MSI 26",event_edesc:"Meet us at our on-site booth during the event. Made-on-the-spot NFC keyrings and limited goods.",event_place_l:"Place",event_place_v:"Daejeon · Flea market booth",event_period_l:"Dates",event_period_v:"Jul 3 – Jul 12",event_hours_l:"Hours",event_hours_v:"During on-site hours",follow_h3:"After the event, be first to hear new songs and news.",follow_p:"Follow along so you never miss the next drop or limited event.",follow_kakao:"KakaoTalk channel",footer_tagline:"Your moment, as a song"},
+    zh:{hero_eyebrow:"定制歌曲 · 作曲",hero_title:"把你的瞬间<br>留成一首<em>歌</em>",hero_sub:"用你的故事谱成的唯一一首歌，刻进 NFC 钥匙扣。手机轻轻一碰，旋律再次响起。",hero_cta:"在 Instagram 关注",hero_note:"定制委托 · 专属歌曲订制",about_label:"我们<br>做什么",about_lead:"把你想听的故事谱成一首歌，装进小小的钥匙扣，轻轻一触便再次响起。",about_meta:"定制歌曲 — 聆听你的故事、氛围与长度，谱写一首专属曲目。<br>NFC 钥匙扣 — 手机轻触即可打开歌曲与本页。<br>小批量制作 — 用于礼物、纪念与活动。",listen_label:"试听",listen_now_default:"请选择歌曲",listen_empty:"此处将播放 YouTube 视频。",listen_hint:"从列表选择歌曲，或在下方粘贴 YouTube 链接即可立即播放。",custom_label:"播放你的链接",custom_ph:"粘贴 YouTube 链接",custom_btn:"播放",custom_now:"你的歌曲",custom_need:"请输入链接。",custom_invalid:"这不是有效的 YouTube 链接。",nfc_label:"写入 NFC 钥匙扣",nfc_desc:"选择要写入的链接，点击按钮，再将手机背面靠近钥匙扣即可写入。",nfc_field_content:"写入内容",nfc_field_url:"地址（URL）",nfc_btn:"写入钥匙扣",nfc_opt_home:"主页（首页）",nfc_opt_track:"第 {n} 首",nfc_opt_custom:"自定义链接",nfc_hint:"NFC 写入仅在安卓 Chrome 中有效。iPhone 请使用原有的 NFC 应用。",nfc_need_url:"请输入地址。",nfc_unsupported:"此浏览器无法写入 NFC，请在安卓 Chrome 中打开。",nfc_tap:"将钥匙扣靠近手机背面并稍候…",nfc_done:"完成！链接已写入钥匙扣。",nfc_fail_perm:"NFC 权限被拒绝或 NFC 已关闭。请在设置中开启 NFC 后重试。",nfc_fail_move:"标签移开太快，请贴稳后重试。",nfc_fail_generic:"写入失败：",event_label:"现场快闪",event_h2:"MSI 26 期间 · 大田现场快闪市集",event_edesc:"活动期间在现场摊位与你相见。提供即时制作 NFC 钥匙扣与限定周边。",event_place_l:"地点",event_place_v:"大田 · 跳蚤市场摊位",event_period_l:"日期",event_period_v:"7月3日 – 7月12日",event_hours_l:"时间",event_hours_v:"现场营业时间内",follow_h3:"活动结束后，也第一时间收到新歌与消息。",follow_p:"关注我们，不错过下次开售与限定活动。",follow_kakao:"KakaoTalk 频道",footer_tagline:"把你的瞬间留成一首歌"},
+    ja:{hero_eyebrow:"カスタムソング · 作曲",hero_title:"あなたの瞬間を<br><em>歌</em>に残す",hero_sub:"あなたの物語から生まれる、たった一つの曲。NFCキーリングに刻み、スマホをかざせばまた流れ出す。",hero_cta:"Instagramをフォロー",hero_note:"制作のご依頼 · オーダーメイド楽曲",about_label:"つくる<br>もの",about_lead:"聴きたい物語を一曲に。小さなキーリングに収め、ふれるたびにまた呼び起こせます。",about_meta:"カスタムソング — 物語・雰囲気・長さをうかがい、一曲を作ります。<br>NFCキーリング — スマホをかざすと曲とこのページが開きます。<br>少量制作 — 贈り物・記念・イベントに。",listen_label:"試聴",listen_now_default:"曲を選んでください",listen_empty:"ここに YouTube 動画が再生されます。",listen_hint:"リストから曲を選ぶか、下に YouTube リンクを貼り付けてすぐ再生できます。",custom_label:"自分のリンクで再生",custom_ph:"YouTube リンクを貼り付け",custom_btn:"再生",custom_now:"リクエスト曲",custom_need:"リンクを入力してください。",custom_invalid:"有効な YouTube リンクではありません。",nfc_label:"NFCキーリングに書き込む",nfc_desc:"書き込むリンクを選び、ボタンを押して、スマホの背面をキーリングに近づけると書き込まれます。",nfc_field_content:"書き込む内容",nfc_field_url:"アドレス（URL）",nfc_btn:"キーリングに書き込む",nfc_opt_home:"ホームページ（メイン）",nfc_opt_track:"{n}番",nfc_opt_custom:"自由入力",nfc_hint:"NFC書き込みはAndroidのChromeのみ対応です。iPhoneは従来のNFCアプリをご利用ください。",nfc_need_url:"アドレスを入力してください。",nfc_unsupported:"このブラウザはNFC書き込みに対応していません。AndroidのChromeで開いてください。",nfc_tap:"キーリングをスマホ背面に近づけてお待ちください…",nfc_done:"完了！キーリングにアドレスを書き込みました。",nfc_fail_perm:"NFCの権限が拒否されたか、NFCがオフです。設定でNFCをオンにして再試行してください。",nfc_fail_move:"タグを離すのが早すぎました。当てたまま少し待ってください。",nfc_fail_generic:"書き込み失敗：",event_label:"現地ポップアップ",event_h2:"MSI 26 期間・大田 現地ポップアップマーケット出店",event_edesc:"会期中、現地ブースにて。その場で作る NFC キーリングと限定グッズをご用意。",event_place_l:"場所",event_place_v:"大田 · フリーマーケット出店",event_period_l:"期間",event_period_v:"7月3日 – 7月12日",event_hours_l:"営業",event_hours_v:"現地営業時間内",follow_h3:"イベントの後も、新しい曲とお知らせをいち早く。",follow_p:"フォローしておくと、次の販売や限定イベントを見逃しません。",follow_kakao:"KakaoTalkチャンネル",footer_tagline:"あなたの瞬間を歌に"},
+    ru:{hero_eyebrow:"Песня на заказ · Сочинение",hero_title:"Ваш момент,<br>сохранённый как <em>песня</em>",hero_sub:"Одна песня из вашей истории — на NFC-брелоке. Поднесите телефон, и она зазвучит снова.",hero_cta:"Подписаться в Instagram",hero_note:"Заказы · Песни на заказ",about_label:"Что мы<br>делаем",about_lead:"Вашу историю превращаем в одну песню и храним в маленьком брелоке — коснитесь, и она зазвучит снова.",about_meta:"Песни на заказ — слушаем вашу историю, настроение и длину и пишем один трек.<br>NFC-брелок — коснитесь телефоном, чтобы открыть песню и эту страницу.<br>Малые тиражи — для подарков, памяти и мероприятий.",listen_label:"Послушать",listen_now_default:"Выберите трек",listen_empty:"Здесь будет играть видео с YouTube.",listen_hint:"Выберите трек из списка или вставьте ссылку YouTube ниже, чтобы включить сейчас.",custom_label:"Воспроизвести свою ссылку",custom_ph:"Вставьте ссылку YouTube",custom_btn:"Играть",custom_now:"Ваш трек",custom_need:"Введите ссылку.",custom_invalid:"Это недействительная ссылка YouTube.",nfc_label:"Запись на NFC-брелок",nfc_desc:"Выберите ссылку, нажмите кнопку и поднесите заднюю часть телефона к брелоку, чтобы записать.",nfc_field_content:"Что записать",nfc_field_url:"Адрес (URL)",nfc_btn:"Записать на брелок",nfc_opt_home:"Главная страница",nfc_opt_track:"№ {n}",nfc_opt_custom:"Своя ссылка",nfc_hint:"Запись NFC работает только в Chrome на Android. На iPhone используйте привычное NFC-приложение.",nfc_need_url:"Введите адрес.",nfc_unsupported:"Этот браузер не умеет записывать NFC. Откройте в Chrome на Android.",nfc_tap:"Поднесите брелок к задней части телефона и подождите…",nfc_done:"Готово! Ссылка записана на брелок.",nfc_fail_perm:"Доступ к NFC запрещён или NFC выключен. Включите NFC в настройках и повторите.",nfc_fail_move:"Метку убрали слишком рано. Держите её ровно и повторите.",nfc_fail_generic:"Ошибка записи: ",event_label:"Поп-ап на месте",event_h2:"Поп-ап маркет в Тэджоне во время MSI 26",event_edesc:"Встречаемся на нашем стенде во время события. Брелоки на месте и лимитированный мерч.",event_place_l:"Место",event_place_v:"Тэджон · Стенд на маркете",event_period_l:"Даты",event_period_v:"3 июля – 12 июля",event_hours_l:"Часы",event_hours_v:"В часы работы на месте",follow_h3:"После события — первыми узнавайте о новых песнях и новостях.",follow_p:"Подпишитесь, чтобы не пропустить новый дроп и лимитированные события.",follow_kakao:"Канал KakaoTalk",footer_tagline:"Ваш момент — как песня"},
+    de:{hero_eyebrow:"Song nach Maß · Komposition",hero_title:"Dein Moment,<br>bewahrt als <em>Song</em>",hero_sub:"Ein Song aus deiner Geschichte — auf einem NFC-Schlüsselanhänger. Handy dranhalten, und er spielt wieder.",hero_cta:"Auf Instagram folgen",hero_note:"Aufträge · Songs nach Maß",about_label:"Was wir<br>machen",about_lead:"Deine Geschichte wird zu einem Song — bewahrt in einem kleinen Anhänger, den du mit einer Berührung wieder abspielst.",about_meta:"Songs nach Maß — wir hören deine Geschichte, Stimmung und Länge und komponieren einen Track.<br>NFC-Anhänger — Handy dranhalten, um Song und Seite zu öffnen.<br>Kleine Auflagen — für Geschenke, Andenken und Events.",listen_label:"Anhören",listen_now_default:"Titel wählen",listen_empty:"Hier spielt ein YouTube-Video.",listen_hint:"Wähle einen Titel aus der Liste oder füge unten einen YouTube-Link ein, um ihn jetzt abzuspielen.",custom_label:"Eigenen Link abspielen",custom_ph:"YouTube-Link einfügen",custom_btn:"Abspielen",custom_now:"Dein Titel",custom_need:"Bitte einen Link eingeben.",custom_invalid:"Kein gültiger YouTube-Link.",nfc_label:"Auf NFC-Anhänger schreiben",nfc_desc:"Link auswählen, Knopf drücken und die Rückseite des Handys an den Anhänger halten, um zu schreiben.",nfc_field_content:"Was speichern",nfc_field_url:"Adresse (URL)",nfc_btn:"Auf Anhänger schreiben",nfc_opt_home:"Startseite (Haupt)",nfc_opt_track:"Nr. {n}",nfc_opt_custom:"Eigener Link",nfc_hint:"NFC-Schreiben funktioniert nur in Chrome unter Android. Auf dem iPhone die übliche NFC-App nutzen.",nfc_need_url:"Bitte eine Adresse eingeben.",nfc_unsupported:"Dieser Browser kann kein NFC schreiben. Bitte in Chrome unter Android öffnen.",nfc_tap:"Anhänger an die Rückseite des Handys halten und warten…",nfc_done:"Fertig! Der Link wurde auf den Anhänger geschrieben.",nfc_fail_perm:"NFC-Berechtigung verweigert oder NFC ist aus. NFC in den Einstellungen aktivieren und erneut versuchen.",nfc_fail_move:"Tag zu früh entfernt. Ruhig halten und erneut versuchen.",nfc_fail_generic:"Schreiben fehlgeschlagen: ",event_label:"Pop-up vor Ort",event_h2:"Pop-up-Markt in Daejeon während MSI 26",event_edesc:"Triff uns während des Events an unserem Stand. Anhänger direkt gefertigt und limitierte Goods.",event_place_l:"Ort",event_place_v:"Daejeon · Flohmarktstand",event_period_l:"Daten",event_period_v:"3. Juli – 12. Juli",event_hours_l:"Zeiten",event_hours_v:"Während der Öffnungszeiten vor Ort",follow_h3:"Auch nach dem Event neue Songs und News zuerst erfahren.",follow_p:"Folge uns, um den nächsten Drop und limitierte Events nicht zu verpassen.",follow_kakao:"KakaoTalk-Kanal",footer_tagline:"Dein Moment, als Song"}
   };
 
   var currentLang='ko';
@@ -425,7 +443,7 @@
     document.querySelectorAll('[data-i18n]').forEach(function(el){var k=el.getAttribute('data-i18n');if(d[k]!=null)el.textContent=d[k];});
     document.querySelectorAll('[data-i18n-html]').forEach(function(el){var k=el.getAttribute('data-i18n-html');if(d[k]!=null)el.innerHTML=d[k];});
     document.querySelectorAll('[data-i18n-ph]').forEach(function(el){var k=el.getAttribute('data-i18n-ph');if(d[k]!=null)el.setAttribute('placeholder',d[k]);});
-    if(current===-1&&!activeId)nowT.textContent=d.listen_now_default;
+    if(current===-1&&!hasActive)nowT.textContent=d.listen_now_default;
     buildNfcOptions();
     if(!nfcSupported)setStatus(d.nfc_unsupported,'');
   }
@@ -440,9 +458,9 @@
   langSel.value=def;
   langSel.addEventListener('change',function(){applyLang(langSel.value);});
 
-  urlInput.value=presetUrls[0];urlInput.readOnly=true;
   applyLang(def);
-  if(!isNaN(q)&&q>=1&&q<=tracks.length)select(q-1);
+  if(!isNaN(q)&&q>=1&&q<=tracks.length)select(q-1,true);
+  else select(0,false); // 기본: 1번 곡 영상 표시
 </script>
 
 </body>
