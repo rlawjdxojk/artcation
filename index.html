@@ -81,6 +81,8 @@
   .now{flex:1;min-width:0;}
   .now-title{font-family:var(--serif);font-size:clamp(19px,3.4vw,24px);line-height:1.3;color:var(--ink);}
   .now-by{font-size:13px;color:var(--gray);margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .now-yt{display:inline-block;margin-top:10px;font-size:13px;font-weight:600;color:var(--accent);text-decoration:none;border:1px solid var(--accent);border-radius:100px;padding:6px 14px;}
+  .now-yt:hover{background:var(--accent);color:#fff;}
 
   .tracklist{list-style:none;margin:26px 0 0;border-top:1px solid var(--line);}
   .track{width:100%;display:flex;align-items:center;gap:16px;background:none;border:0;cursor:pointer;text-align:left;padding:14px 4px;border-bottom:1px solid var(--line);font-family:var(--sans);color:var(--ink);transition:padding-left .2s ease;}
@@ -212,6 +214,7 @@
         <div class="now">
           <div class="now-title" id="nowTitle">곡을 선택하세요</div>
           <div class="now-by" id="nowBy">artcation</div>
+          <a class="now-yt" id="nowYt" href="#" target="_blank" rel="noopener" style="display:none">유튜브에서 보기</a>
         </div>
       </div>
 
@@ -267,7 +270,7 @@
 
 <script>
   // ===== 재생목록 & 곡 목록 (재생목록 순서와 동일하게 1~12) =====
-  var PLAYLIST='PLAuReJsC1t_8';
+  var PLAYLIST='PLJP5_qSxMbkICZcBVLkrfZLAEsR19m7Xm';
   var tracks=[
     { title:"Warriors",            by:"ft. Imagine Dragons · Worlds 2014", q:"League of Legends Warriors Imagine Dragons Worlds 2014" },
     { title:"Worlds Collide",      by:"ft. Nicki Taylor · Worlds 2015", q:"League of Legends Worlds Collide 2015" },
@@ -287,7 +290,7 @@
       nowT=document.getElementById('nowTitle'),nowB=document.getElementById('nowBy'),
       videoWrap=document.getElementById('videoWrap'),videoEmpty=document.getElementById('videoEmpty'),
       customInput=document.getElementById('customUrl'),customBtn=document.getElementById('customPlay'),
-      customMsg=document.getElementById('customMsg'),
+      customMsg=document.getElementById('customMsg'),nowYt=document.getElementById('nowYt'),
       current=-1,hasActive=false;
 
   function ytParse(s){
@@ -309,9 +312,11 @@
     li.appendChild(b);listEl.appendChild(li);
   });
   function rows(){return listEl.querySelectorAll('.track');}
+  function ytSearchUrl(i){return 'https://www.youtube.com/results?search_query='+encodeURIComponent(tracks[i].q);}
   function setNow(i){
     nowT.textContent=tracks[i].title;nowB.textContent=tracks[i].by;
     rows().forEach(function(r,k){r.classList.toggle('active',k===i);});
+    nowYt.href=ytSearchUrl(i);nowYt.textContent=dict[currentLang].yt_watch;nowYt.style.display='inline-block';
   }
   var emptyMode='default';
   function renderEmpty(){
@@ -377,6 +382,8 @@
     setCustomMsg('','');
     current=-1;rows().forEach(function(r){r.classList.remove('active');});
     nowT.textContent=d.custom_now;nowB.textContent='YouTube';
+    nowYt.href=m.vid?('https://www.youtube.com/watch?v='+m.vid):('https://www.youtube.com/playlist?list='+m.list);
+    nowYt.textContent=d.yt_watch;nowYt.style.display='inline-block';
     showVideo();playlistReady=false;
     whenReady(function(){
       if(m.list)player.loadPlaylist({list:m.list,listType:'playlist'});
@@ -463,6 +470,7 @@
     document.querySelectorAll('[data-i18n-html]').forEach(function(el){var k=el.getAttribute('data-i18n-html');if(d[k]!=null)el.innerHTML=d[k];});
     document.querySelectorAll('[data-i18n-ph]').forEach(function(el){var k=el.getAttribute('data-i18n-ph');if(d[k]!=null)el.setAttribute('placeholder',d[k]);});
     if(current===-1&&!hasActive)nowT.textContent=d.listen_now_default;
+    if(nowYt.style.display!=='none')nowYt.textContent=d.yt_watch;
     renderEmpty();
     buildNfcOptions();
     if(!nfcSupported)setStatus(d.nfc_unsupported,'');
