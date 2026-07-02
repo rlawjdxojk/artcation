@@ -272,19 +272,20 @@
   // ===== 재생목록 & 곡 목록 (재생목록 순서와 동일하게 1~12) =====
   var PLAYLIST='PLJP5_qSxMbkICZcBVLkrfZLAEsR19m7Xm';
   var tracks=[
-    { title:"Warriors",            by:"ft. Imagine Dragons · Worlds 2014", q:"League of Legends Warriors Imagine Dragons Worlds 2014" },
-    { title:"Worlds Collide",      by:"ft. Nicki Taylor · Worlds 2015", q:"League of Legends Worlds Collide 2015" },
-    { title:"Ignite",              by:"ft. Zedd · Worlds 2016", q:"League of Legends Ignite Zedd Worlds 2016" },
-    { title:"RISE",                by:"ft. The Glitch Mob, Mako, The Word Alive · Worlds 2018", q:"League of Legends RISE Worlds 2018" },
-    { title:"Phoenix",             by:"ft. Cailin Russo, Chrissy Costanza · Worlds 2019", q:"League of Legends Phoenix Worlds 2019" },
-    { title:"Take Over",           by:"ft. Jeremy McKinnon, MAX, Henry · Worlds 2020", q:"League of Legends Take Over Worlds 2020" },
-    { title:"Burn It All Down",    by:"ft. PVRIS · Worlds 2021", q:"League of Legends Burn It All Down Worlds 2021" },
-    { title:"GODS",                by:"ft. NewJeans · Worlds 2023", q:"League of Legends GODS NewJeans Worlds 2023" },
-    { title:"Heavy Is The Crown",  by:"ft. Linkin Park · Worlds 2024", q:"League of Legends Heavy Is The Crown Linkin Park Worlds 2024" },
-    { title:"Sacrifice",           by:"ft. G.E.M. · Worlds 2025", q:"League of Legends Sacrifice G.E.M. Worlds 2025" },
-    { title:"Legends Never Die",   by:"ft. Against The Current · Worlds 2017", q:"League of Legends Legends Never Die Worlds 2017" },
-    { title:"Star Walkin'",        by:"Lil Nas X · Worlds 2022", q:"Lil Nas X STAR WALKIN League of Legends Worlds 2022" }
+    { title:"Warriors",            by:"ft. Imagine Dragons · Worlds 2014", pi:11, q:"League of Legends Warriors Imagine Dragons Worlds 2014" },
+    { title:"Worlds Collide",      by:"ft. Nicki Taylor · Worlds 2015", pi:10, q:"League of Legends Worlds Collide 2015" },
+    { title:"Ignite",              by:"ft. Zedd · Worlds 2016", pi:9, q:"League of Legends Ignite Zedd Worlds 2016" },
+    { title:"RISE",                by:"ft. The Glitch Mob, Mako, The Word Alive · Worlds 2018", pi:7, q:"League of Legends RISE Worlds 2018" },
+    { title:"Phoenix",             by:"ft. Cailin Russo, Chrissy Costanza · Worlds 2019", pi:6, q:"League of Legends Phoenix Worlds 2019" },
+    { title:"Take Over",           by:"ft. Jeremy McKinnon, MAX, Henry · Worlds 2020", pi:5, q:"League of Legends Take Over Worlds 2020" },
+    { title:"Burn It All Down",    by:"ft. PVRIS · Worlds 2021", pi:4, q:"League of Legends Burn It All Down Worlds 2021" },
+    { title:"GODS",                by:"ft. NewJeans · Worlds 2023", pi:2, q:"League of Legends GODS NewJeans Worlds 2023" },
+    { title:"Heavy Is The Crown",  by:"ft. Linkin Park · Worlds 2024", pi:1, q:"League of Legends Heavy Is The Crown Linkin Park Worlds 2024" },
+    { title:"Sacrifice",           by:"ft. G.E.M. · Worlds 2025", pi:0, q:"League of Legends Sacrifice G.E.M. Worlds 2025" },
+    { title:"Legends Never Die",   by:"ft. Against The Current · Worlds 2017", pi:8, q:"League of Legends Legends Never Die Worlds 2017" },
+    { title:"Star Walkin'",        by:"Lil Nas X · Worlds 2022", pi:3, q:"Lil Nas X STAR WALKIN League of Legends Worlds 2022" }
   ];
+  var pi2d={};tracks.forEach(function(t,d){pi2d[t.pi]=d;});
 
   var playBtn=document.getElementById('playBtn'),listEl=document.getElementById('trackList'),
       nowT=document.getElementById('nowTitle'),nowB=document.getElementById('nowBy'),
@@ -346,8 +347,8 @@
             playBtn.classList.add('is-playing');
             videoEmpty.style.display='none';
             if(playlistReady&&player.getPlaylistIndex){
-              var idx=player.getPlaylistIndex();
-              if(idx>=0&&idx<tracks.length&&idx!==current){current=idx;setNow(idx);}
+              var idx=player.getPlaylistIndex(),di=pi2d[idx];
+              if(di!=null&&di!==current){current=di;setNow(di);}
             }
           }else playBtn.classList.remove('is-playing');
         },
@@ -364,10 +365,10 @@
   function select(i,autoplay){
     current=i;setNow(i);showVideo();
     whenReady(function(){
-      if(playlistReady){player.playVideoAt(i);}
+      if(playlistReady){player.playVideoAt(tracks[i].pi);}
       else{
-        if(autoplay)player.loadPlaylist({list:PLAYLIST,listType:'playlist',index:i});
-        else player.cuePlaylist({list:PLAYLIST,listType:'playlist',index:i});
+        if(autoplay)player.loadPlaylist({list:PLAYLIST,listType:'playlist',index:tracks[i].pi});
+        else player.cuePlaylist({list:PLAYLIST,listType:'playlist',index:tracks[i].pi});
         playlistReady=true;
       }
     });
